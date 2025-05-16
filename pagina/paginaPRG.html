@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colegio Pedro Ruiz Gallo</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+    .navbar {
+      background-color: #00B7EB; /* Blue from shield */
+      color: #000000; /* Black for text */
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background-color: #00B7EB;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navbar .logo {
+      height: 100px;
+      margin-right: 20px;
+    }
+    .navbar .nav-links a {
+      color: #000000;
+      margin-left: 20px;
+      text-decoration: none;
+      position: relative;
+    }
+    .navbar .nav-links a:hover {
+      color: #FFD700; /* Yellow from shield */
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #D3D3D3;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      color: #000000;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #B0B0B0;
+    }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF; /* White from shield */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .carousel-item {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .carousel-item.active {
+      display: block;
+      opacity: 1;
+    }
+    .form-error {
+      color: #FF0000; /* Red from shield */
+      font-size: 0.875rem;
+      display: none;
+    }
+    .social-icons a {
+      color: #000000;
+      margin-left: 10px;
+      font-size: 18px;
+    }
+    .social-icons a:hover {
+      color: #FFD700; /* Yellow from shield */
+    }
+    .professor-card {
+      text-align: center;
+      padding: 20px;
+    }
+    .professor-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    button {
+      background-color: #FFD700; /* Yellow from shield */
+      color: #000000;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #FFC107;
+    }
+    footer {
+      background-color: #005F73; /* Darker blue derived from shield */
+      color: #FFFFFF;
+      padding: 4px;
+      text-align: center;
+    }
+    #programas {
+      background-color: #FFF9E6; /* Light yellow derived from shield */
+    }
+    #noticias {
+      background-color: #E6F7FA; /* Light blue derived from shield */
+    }
+    #profesores {
+      background-color: #FFF5F5; /* Soft red derived from shield */
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="LOGO PRG - 2025 SIN FONDO.png" alt="PRG Logo" class="logo">
+        <span class="ml-2 text-sm">PEDRO RUIZ GALLO</span>
+      </div>
+      <div class="flex items-center">
+        <div class="nav-links">
+          <a href="#inicio">Inicio</a>
+          <div class="dropdown">
+            <a href="#servicios" class="dropdown-toggle">Servicio Educativo ↓</a>
+            <div class="dropdown-content">
+              <a href="#programas">Programas</a>
+              <a href="#noticias">Noticias</a>
+              <a href="#tramites">Trámites</a>
+            </div>
+          </div>
+        </div>
+        <div class="social-icons ml-6">
+          <a href="fb://page/1234567890" onclick="window.location.href='https://www.facebook.com/yourfacebookpage'"><i class="fab fa-facebook-f"></i></a>
+          <a href="instagram://user?username=yourinstagram" onclick="window.location.href='https://www.instagram.com/yourinstagram'"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com" onclick="window.location.href='https://www.youtube.com/youryoutubechannel'"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </nav>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero">
+    <div class="text-center">
+      <h1 class="text-5xl font-bold mb-4">Bienvenidos al Colegio Pedro Ruiz Gallo</h1>
+      <p class="text-2xl mb-6">Disciplina, Estudio y Progreso</p>
+      <a href="#tramites" class="bg-FFD700 text-black px-6 py-3 rounded hover:bg-FFC107">Solicita un Trámite</a>
+    </div>
+  </section>
+
+  <!-- Programas -->
+  <section id="programas" class="py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Nuestros Programas</h2>
+      <!-- Carousel -->
+      <div class="relative max-w-4xl mx-auto">
+        <div id="carousel" class="carousel">
+          <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1516321310764-3f3c90069736?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Educación Primaria" class="w-full h-96 object-cover rounded-lg">
+            <div class="absolute bottom-0 bg-black bg-opacity-50 text-white p-4 w-full">
+              <h3 class="text-xl font-bold">Educación Primaria</h3>
+              <p>Desarrollo de habilidades fundamentales en un entorno inclusivo.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Educación Secundaria" class="w-full h-96 object-cover rounded-lg">
+            <div class="absolute bottom-0 bg-black bg-opacity-50 text-white p-4 w-full">
+              <h3 class="text-xl font-bold">Educación Secundaria</h3>
+              <p>Preparación para desafíos académicos y personales.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1503676260728-1f56cf25a386?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Actividades Extracurriculares" class="w-full h-96 object-cover rounded-lg">
+            <div class="absolute bottom-0 bg-black bg-opacity-50 text-white p-4 w-full">
+              <h3 class="text-xl font-bold">Actividades Extracurriculares</h3>
+              <p>Deportes, arte y tecnología para un desarrollo integral.</p>
+            </div>
+          </div>
+        </div>
+        <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">←</button>
+        <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Noticias -->
+  <section id="noticias" class="py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Últimas Noticias</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <img src="https://images.unsplash.com/photo-1516321310764-3f3c90069736?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Noticia 1" class="w-full h-48 object-cover rounded mb-4">
+          <h3 class="text-xl font-bold mb-2">Feria de Ciencias 2025</h3>
+          <p>¡Nuestros estudiantes ganaron el primer lugar en la Feria Regional de Ciencias!</p>
+          <a href="#" class="text-blue-600 hover:underline mt-2 inline-block">Leer más</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <img src="https://images.unsplash.com/photo-1503676260728-1f56cf25a386?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Noticia 2" class="w-full h-48 object-cover rounded mb-4">
+          <h3 class="text-xl font-bold mb-2">Torneo Deportivo</h3>
+          <p>El equipo de fútbol clasificó para las finales nacionales.</p>
+          <a href="#" class="text-blue-600 hover:underline mt-2 inline-block">Leer más</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Noticia 3" class="w-full h-48 object-cover rounded mb-4">
+          <h3 class="text-xl font-bold mb-2">Taller de Arte</h3>
+          <p>Nuevo taller de pintura y escultura para secundaria.</p>
+          <a href="#" class="text-blue-600 hover:underline mt-2 inline-block">Leer más</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profesores -->
+  <section id="profesores" class="py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Nuestros Profesores</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="professor-card">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" alt="Profesor 1">
+          <h3 class="text-xl font-bold mt-4">Dr. Juan Pérez</h3>
+          <p>Matemáticas</p>
+          <p>20 años de experiencia</p>
+        </div>
+        <div class="professor-card">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" alt="Profesor 2">
+          <h3 class="text-xl font-bold mt-4">Dra. María López</h3>
+          <p>Lenguaje</p>
+          <p>15 años de experiencia</p>
+        </div>
+        <div class="professor-card">
+          <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" alt="Profesor 3">
+          <h3 class="text-xl font-bold mt-4">Prof. Carlos Ruiz</h3>
+          <p>Ciencias</p>
+          <p>10 años de experiencia</p>
+        </div>
+        <div class="professor-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734db14?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" alt="Profesor 4">
+          <h3 class="text-xl font-bold mt-4">Prof. Ana Gómez</h3>
+          <p>Historia</p>
+          <p>12 años de experiencia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trámites -->
+  <section id="tramites" class="py-16" style="background-color: #00B7EB; color: #FFFFFF;">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Solicitud de Trámites</h2>
+      <p class="text-lg mb-6">Completa el formulario para solicitar un trámite. Nos pondremos en contacto contigo.</p>
+      <div class="max-w-lg mx-auto">
+        <form id="tramitesForm" action="send_email.php" method="POST" class="space-y-4" enctype="multipart/form-data">
+          <div>
+            <input type="text" id="tramitesName" name="name" placeholder="Nombre" class="w-full p-2 border rounded text-black">
+            <p id="tramitesNameError" class="form-error">Por favor, ingrese su nombre.</p>
+          </div>
+          <div>
+            <input type="text" id="tramitesDNI" name="dni" placeholder="DNI" class="w-full p-2 border rounded text-black">
+            <p id="tramitesDNIError" class="form-error">Por favor, ingrese su DNI.</p>
+          </div>
+          <div>
+            <input type="email" id="tramitesEmail" name="email" placeholder="Correo Electrónico" class="w-full p-2 border rounded text-black">
+            <p id="tramitesEmailError" class="form-error">Por favor, ingrese un correo válido.</p>
+          </div>
+          <div>
+            <input type="tel" id="tramitesPhone" name="phone" placeholder="Número de Celular" class="w-full p-2 border rounded text-black">
+            <p id="tramitesPhoneError" class="form-error">Por favor, ingrese un número de celular válido.</p>
+          </div>
+          <div>
+            <select id="tramitesType" name="tramitesType" class="w-full p-2 border rounded text-black">
+              <option value="">Seleccione el tipo de trámite</option>
+              <option value="certificado">Certificado de Estudios</option>
+              <option value="traslado">Solicitud de Traslado</option>
+              <option value="constancia">Constancia de Matrícula</option>
+              <option value="justificacion">Justificación de Inasistencia</option>
+              <option value="otro">Otro</option>
+            </select>
+            <p id="tramitesTypeError" class="form-error">Por favor, seleccione un tipo de trámite.</p>
+          </div>
+          <div>
+            <input type="text" id="tramitesSubject" name="subject" placeholder="Asunto" class="w-full p-2 border rounded text-black">
+            <p id="tramitesSubjectError" class="form-error">Por favor, ingrese un asunto.</p>
+          </div>
+          <div>
+            <input type="file" id="tramitesPDF" name="pdfFile" accept="application/pdf" class="w-full p-2 border rounded text-black">
+            <p id="tramitesPDFError" class="form-error">Por favor, suba un archivo PDF.</p>
+          </div>
+          <button type="submit" id="submitTramites" class="bg-FFD700 text-black px-6 py-2 rounded hover:bg-FFC107">Enviar Solicitud</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-005F73 text-white p-4 text-center">
+    <p>© 2025 Colegio Pedro Ruiz Gallo. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Initialize form validation
+    document.querySelector('#submitTramites').addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default form submission for validation
+      const name = document.querySelector('#tramitesName').value.trim();
+      const dni = document.querySelector('#tramitesDNI').value.trim();
+      const email = document.querySelector('#tramitesEmail').value.trim();
+      const phone = document.querySelector('#tramitesPhone').value.trim();
+      const tramitesType = document.querySelector('#tramitesType').value;
+      const subject = document.querySelector('#tramitesSubject').value.trim();
+      const pdfFile = document.querySelector('#tramitesPDF').files[0];
+      const nameError = document.querySelector('#tramitesNameError');
+      const dniError = document.querySelector('#tramitesDNIError');
+      const emailError = document.querySelector('#tramitesEmailError');
+      const phoneError = document.querySelector('#tramitesPhoneError');
+      const typeError = document.querySelector('#tramitesTypeError');
+      const subjectError = document.querySelector('#tramitesSubjectError');
+      const pdfError = document.querySelector('#tramitesPDFError');
+      let isValid = true;
+
+      nameError.style.display = 'none';
+      dniError.style.display = 'none';
+      emailError.style.display = 'none';
+      phoneError.style.display = 'none';
+      typeError.style.display = 'none';
+      subjectError.style.display = 'none';
+      pdfError.style.display = 'none';
+
+      if (!name) {
+        nameError.style.display = 'block';
+        isValid = false;
+      }
+      if (!dni || !/^\d{8}$/.test(dni)) {
+        dniError.style.display = 'block';
+        isValid = false;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailError.style.display = 'block';
+        isValid = false;
+      }
+      if (!phone || !/^\d{9}$/.test(phone)) {
+        phoneError.style.display = 'block';
+        isValid = false;
+      }
+      if (!tramitesType) {
+        typeError.style.display = 'block';
+        isValid = false;
+      }
+      if (!subject) {
+        subjectError.style.display = 'block';
+        isValid = false;
+      }
+      if (!pdfFile || !pdfFile.type === 'application/pdf') {
+        pdfError.style.display = 'block';
+        isValid = false;
+      }
+
+      if (isValid) {
+        const form = document.querySelector('#tramitesForm');
+        form.submit(); // Submit to PHP
+      }
+    });
+
+    // Carousel functionality
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('#prevBtn');
+    const nextBtn = document.querySelector('#nextBtn');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      carouselItems.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+      showSlide(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % carouselItems.length;
+      showSlide(currentIndex);
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % carouselItems.length;
+      showSlide(currentIndex);
+    }, 5000);
+
+    // Sticky navbar effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
